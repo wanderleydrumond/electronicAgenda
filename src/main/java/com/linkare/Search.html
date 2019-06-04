@@ -7,6 +7,29 @@
     <body>
         <wicket:extend>
             <h1>Search Contacts</h1>
+            <form wicket:id="searchForm">
+                <input type="text" wicket:id="searchName" placeholder="Type a name">
+                <button type="submit" wicket:id="searchButton">SEARCH</button>
+            </form>
+            <br/>
+            <div wicket:id="divResults">
+                <table border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>e-mail</th>
+                        <th>Phone Number</th>
+                        <th>Marital Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>[Name]</td>
+                        <td>[e-mail]</td>
+                        <td>[Telephone]</td>
+                        <td>[Marital Status]</td>
+                        <td><a href="#">Edit</a> </td>
+                    </tr>
+                </table>
+            </div>
         </wicket:extend>
     </body>
 </html>
