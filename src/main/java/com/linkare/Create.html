@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wicket="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add new Contact</title>
+    </head>
+    <body>
+        <wicket:extend>
+            <h1 wicket:id="Title">[title]</h1>
+            <div wicket:id="feedbackMessage" style="color: red"></div>
+            <form wicket:id="contactForm" name="contactForm">
+                <input wicket:id="name" type="text" placeholder="type your name here"><br/>
+                <input wicket:id="email" type="text" placeholder="type your email here"><br/>
+                <input wicket:id="telephone" type="text" placeholder="type your phone number here"><br/>
+                <select wicket:id="maritalStatus">
+                    <option>[first option]</option>
+                    <option>[second option]</option>
+                </select>
+                <button type="submit" name="submit">SAVE</button>
+            </form>
+        </wicket:extend>
+    </body>
+</html>
