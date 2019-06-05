@@ -9,7 +9,8 @@ import java.util.List;
 
 public class ContactDAO {
     private static final String CREATE_SQL = "INSERT INTO contact(username, email, telephone) VALUES (?,?,?)";
-    private static final String LIST_SQL = "SELECT id, name, email, telephone, marital_status FROM contact WHERE name LIKE ?";
+    private static final String LIST_SQL = "SELECT id, username, email, telephone, marital_status FROM contact WHERE name LIKE ?";
+    private static final String UPDATE_SQL = "UPDATE contact SET username = ?, email = ?, telephone = ?, marital_status = ? WHERE id = ?";
     private final Connection connection;
 
     public ContactDAO(Connection connection) {
@@ -76,4 +77,29 @@ public class ContactDAO {
         }
         return contacts;
     }
+
+    public void update(Contact contact) {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(UPDATE_SQL);
+            preparedStatement.setString(1, contact.getName());
+            preparedStatement.setString(2, contact.getEmail());
+            preparedStatement.setString(3, contact.getTelephone());
+            preparedStatement.setString(4, contact.getMaritalStatus().name());
+            preparedStatement.setLong(5,contact.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 }
