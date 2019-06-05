@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactDAO {
-    private static final String CREATE_SQL = "INSERT INTO contact(username, email, telephone) VALUES (?,?,?)";
+    private static final String CREATE_SQL = "INSERT INTO contact(username, email, telephone, marital_status) VALUES (?,?,?,?)";
     private static final String LIST_SQL = "SELECT id, username, email, telephone, marital_status FROM contact WHERE name LIKE ?";
     private static final String UPDATE_SQL = "UPDATE contact SET username = ?, email = ?, telephone = ?, marital_status = ? WHERE id = ?";
     private final Connection connection;
