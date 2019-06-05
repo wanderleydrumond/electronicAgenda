@@ -18,10 +18,9 @@ import org.apache.wicket.validation.validator.EmailAddressValidator;
 import org.apache.wicket.validation.validator.StringValidator;
 
 import java.sql.Connection;
-import java.util.Arrays;
 import java.util.List;
 
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 
 public class Create extends BasePage {
 
